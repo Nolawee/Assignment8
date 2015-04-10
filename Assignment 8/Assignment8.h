@@ -21,7 +21,10 @@ struct adjVertex{
 struct vertex{
     std::string name;
     bool visited;
+    int distance;
+    vertex *previous;
     std::vector<adjVertex> adj;
+    int ID;
 };
 
 class Graph
@@ -32,7 +35,9 @@ public:
     void addEdge(std::string v1, std::string v2, int weight);
     void addVertex(std::string name);
     void displayEdges();
-    void BFTraversal(std::string startingCity);
+    void BFTraversal();
+    void Dijkstra(std::string sourceVertex, std::string destinationVertex);
+    void graphInit();
 protected:
 private:
     //vector<edge> edges;

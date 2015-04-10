@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "Assignment8.h"
 #include <sstream>
 #include <string>
 void displayMenu();
@@ -15,7 +16,8 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    ifstream inputFile("zombieCities.txt");
+    Graph g;
+    g.graphInit();
     string command;
     displayMenu();
     getline(cin, command);
@@ -26,6 +28,7 @@ int main(int argc, const char * argv[])
         else if (command == "2")
         {
             cout<<"Finding districts"<<endl;
+            
         }
         else if (command == "3")
         {
