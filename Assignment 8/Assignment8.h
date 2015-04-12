@@ -21,10 +21,11 @@ struct adjVertex{
 struct vertex{
     std::string name;
     bool visited;
+    //int weight;
     int distance;
     vertex *previous;
     std::vector<adjVertex> adj;
-    int ID;
+    int ID = 0;
 };
 
 class Graph
@@ -38,6 +39,8 @@ public:
     void BFTraversal();
     void Dijkstra(std::string sourceVertex, std::string destinationVertex);
     void graphInit();
+    void printVertices();
+    void FindShortestPath(/*std::string starting, std::string destination*/);
 protected:
 private:
     //vector<edge> edges;

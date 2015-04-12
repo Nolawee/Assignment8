@@ -24,6 +24,7 @@ int main(int argc, const char * argv[])
     while (command != "6") {
         if (command == "1") {
             cout<<"Printing Verticies"<<endl;
+            g.printVertices();
         }
         else if (command == "2")
         {
@@ -33,6 +34,7 @@ int main(int argc, const char * argv[])
         else if (command == "3")
         {
             cout<<"Finding shortest path"<<endl;
+            g.FindShortestPath();
         }
         else if (command == "4")
         {

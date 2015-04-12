@@ -58,7 +58,6 @@ void Graph::addVertex(string n){
         
     }
 }
-
 void Graph::displayEdges(){
     //loop through all vertices and adjacent vertices
     for(int i = 0; i < vertices.size(); i++){
@@ -71,7 +70,6 @@ void Graph::displayEdges(){
     
 }
 
-
 void Graph::graphInit(){
     ifstream myFile;
     int w = 0;
@@ -79,6 +77,7 @@ void Graph::graphInit(){
     if(myFile){
         string line;
         while (getline(myFile, line)) {
+            cout<<line<<endl;
             w++;
         }
         myFile.close();
@@ -109,7 +108,7 @@ void Graph::graphInit(){
                     getline(iss, d, ',');
                     int distance = stoi(d);
                     if (distance != -1 && distance != 0) {
-                        for(unsigned int r = 0; r < vertices[i].adj[r].weight; r++){
+                        for(int r = 0; r < vertices[i].adj[r].weight; r++){
                             if (distance == vertices[i].adj[r].weight) {
                                 found = true;
                                 break;
@@ -206,11 +205,70 @@ void Graph::Dijkstra(string starting, string destination){
         node = node->previous;
     }
     cout << "Shortest Path" << endl;
-    for (unsigned long i = qp.size() - 1; i >= 0; i--){
+    for (unsigned long i = qp.size() - 1; i > 0; i--){
         cout << qp[i];
         if(i > 0){
             cout << " - ";
         }
     }
     cout << "\nMinimum Distance: " << minDist << endl;
+}
+
+void Graph::printVertices(){
+    for (int i; i < vertices.size(); i++) {
+        cout<< vertices[i].ID <<":"
+        <<vertices[i].name<<"-->";
+        for (int j = 0; j < vertices[j].adj.size(); j++) {
+            cout<<vertices[i].adj[j].v->name;
+            if (j != vertices[i].adj.size()-1)
+                cout<<"***";
+        }
+    }
+        
+}
+
+void Graph::FindShortestPath(){
+    vertex start;
+    vertex end;
+    string starting;
+    string destination;
+    
+    cout << "Enter a starting city:" << endl;
+    cin >> starting;
+    
+    cout << "Enter an ending city:" << endl;
+    cin >> destination;
+    
+    for(int i = 0; i < vertices.size(); i++){
+        if(vertices[i].name == starting){
+            start = vertices[i];
+            starting = "found";
+        }
+        if (vertices[i].name == destination) {
+            end = vertices[i];
+            destination = "found";
+        }
+    }
+    
+    if(starting != "found" or destination != "found"){
+        cout << "One or more cities doesn't exist" << endl;
+    }
+    else if(starting == "found" and destination == "found"){
+        if(start.ID == end.ID){
+            //placeholder
+            for (int i =0; vertices[i].distance; i++) {
+                cout<<vertices[i].distance<<endl;
+            }
+            //cout<< distance;
+        }
+        else if (start.ID == 0 || end.ID == 0)
+        {
+            cout<<"Please identify the districts before checking distances"<< endl;
+        }
+        else{
+            cout << "No safe path between cities" << endl;
+        }
+    }
+    
+    
 }
