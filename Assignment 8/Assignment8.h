@@ -4,7 +4,7 @@
 //
 //  Created by Nolawee Mengist on 4/6/15.
 //  Copyright (c) 2015 nope. All rights reserved.
-//
+//  Worked with Sami Meharzi
 
 #ifndef Assignment_8_Assignment8_h
 #define Assignment_8_Assignment8_h
